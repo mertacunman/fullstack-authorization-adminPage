@@ -1,0 +1,11 @@
+<% hatalar.forEach(element => { %>
+    <div class="alert alert-danger" role="alert">
+        <%- element.msg %> 
+      </div>
+<% }) %>
+
+<% errorFlashMessage.forEach(element => { %>
+  <div class="alert alert-danger" role="alert">
+      <%- element %> 
+    </div>
+<% }) %>
