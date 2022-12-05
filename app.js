@@ -63,6 +63,12 @@ const adminRouter = require('./src/router/adminRouter')
 app.use('/',authRouter);
 app.use('/yonetim',adminRouter)
 
+app.use('*',(req,res,next)=>{
+    res.render('404sayfa',{layout:'./layout/404.ejs'})
+})
+
+
+
 app.listen(process.env.PORT,()=>{
     console.log('server dinliyor.');
 })

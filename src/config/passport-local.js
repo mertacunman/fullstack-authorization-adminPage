@@ -10,12 +10,12 @@ module.exports = function(passport){
             try{
             const _user = await User.findOne({email:email});
             if(!_user){
-                return done(null,false,{type:'errorFlashMessage',message:'user bulunamadı'})
+                return done(null,false,{type:'errorFlashMessage',message:'Kullanıcı adı veya sifre hatalı'})
             }
 
             const compareSifre = await bcrypt.compare(sifre,_user.sifre)
             if(_user && compareSifre == false){
-                return done(null,false,{type:'errorFlashMessage',message:'sifre dogru degil'});
+                return done(null,false,{type:'errorFlashMessage',message:'Kullanıcı adı veya sifre hatalı'});
             }
 
             if(_user && _user.emailOnay == false){
